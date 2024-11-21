@@ -1,0 +1,27 @@
+<div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <form class="form">
+        <p class="form-title">Sign in to your account</p>
+        <div class="input-container">
+
+            <app-input [(value)]="usuario" [type]="'text'" [placeholder]="'Ingrese usuario...'" />
+
+        </div>
+        <div class="input-container">
+            <app-input [(value)]="clave" [type]="'password'" [showIcon]="true"
+                [placeholder]="'Ingrese contraseña...'" />
+
+        </div>
+
+        <div class="button-container">
+            <button (click)="login()">
+                Sign in
+            </button>
+        </div>
+
+        <p class="signup-link">
+            No account?
+            <a href="">Sign up</a>
+        </p>
+    </form>
+</div>
+
