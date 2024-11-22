@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, tap } from 'rxjs';
+import { catchError, map, tap, Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service'
+import { ResponseI } from '../../interfaces/response.interface'
+import { TOKEN } from '../constants/service-keys';
+import { Router } from '@angular/router';
 
 export interface LoginResponse {
   token: string;
@@ -34,12 +38,12 @@ export class LoginService {
   // URL de nuestra API Rest
   private readonly url = 'http://localhost:3000/api/';
 
-  login(email: string, pass: string) {
-    const direction = this.url + 'usuarios/auth/login/';
+  login(email: string, password: string) {
+    const direction = this.url + 'usuarios/auth/login';
     return this.http
       .post<{ ok: boolean; token: string; msg: string }>(direction, {
         email,
-        pass,
+        password,
       })
       .pipe(
         catchError((e) => {
@@ -51,5 +55,24 @@ export class LoginService {
           localStorage.setItem('x-token', data.token);
         })
       );
+  }
+
+  private readonly cookieService = inject(CookieService);
+  
+  saveTokenInCookies(data: ResponseI<string>): void {
+    console.log(data)
+    this.cookieService.set(TOKEN, data.result, undefined, '/');
+    this.router.navigate(['/tables']);
+  }
+  removeTokenInCookies(){
+    this.cookieService.set(TOKEN, '', undefined, '/')
+  }
+
+  private readonly router = inject(Router);
+  /** @description Todas las funciones para borrar las credenciales del usuario al desloguearse */
+  logout(){
+    this.removeTokenInCookies();
+    this.router.navigate(['login'], {replaceUrl: true});
+
   }
 }

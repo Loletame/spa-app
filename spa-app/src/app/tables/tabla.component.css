@@ -1,0 +1,28 @@
+.tablacontenedor {
+    height: 100%;
+    overflow-y: hidden;
+    background-color: #101414;
+}
+.tabla-admin{
+    position: fixed;
+    top: 10%;
+}
+
+.contenedorfijado {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #101414;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    padding: 1%;
+}
+
+.noMatch {
+    color: rgba(197, 246, 203, 0.844);
+    margin: 5%;
+    font-size: medium;
+}
