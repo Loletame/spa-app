@@ -22,7 +22,7 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.email, this.password).subscribe({
       next: (data) => {
-        this.router.navigate(['/tables'])
+        this.router.navigate(['../tables'])
       },
           error: (e) => {
             console.error(e);
