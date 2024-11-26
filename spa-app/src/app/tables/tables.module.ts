@@ -10,4 +10,4 @@ import { TablesRoutingModule } from './tables.routing.module';
     CommonModule, TablesRoutingModule
   ]
 })
-export class TablaModule { }
+export class TablesModule { }
