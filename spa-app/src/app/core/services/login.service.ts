@@ -59,8 +59,6 @@ export class LoginService {
         map((data) => data.result)
       );
   }
-<<<<<<< Updated upstream
-=======
   private readonly cookieService = inject(CookieService);
   saveTokenInCookies(data: ResponseI<string>): void {
     console.log(data)
@@ -78,5 +76,4 @@ export class LoginService {
     this.router.navigate(['login'], {replaceUrl: true});
 
   }
->>>>>>> Stashed changes
 }

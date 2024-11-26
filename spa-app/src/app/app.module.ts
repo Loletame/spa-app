@@ -10,9 +10,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule],
-<<<<<<< Updated upstream
-  providers: [provideHttpClient(/*withInterceptors(undefined)*/)],
-=======
   /**
    * arreglar interceptor
    */
@@ -21,7 +18,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   CookieService,
   provideAnimationsAsync()
   ],
->>>>>>> Stashed changes
   bootstrap: [AppComponent],
 })
 export class AppModule {}
