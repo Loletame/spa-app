@@ -4,14 +4,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 100%;
     width: auto;
 }
 
   .tablacontenedor {
     background-color: #ffffff16;
-    width: 100%;
-    height: 80%;
+    width: 90%;
+    height: 70%;
+    margin: 2%;
     padding: 2%;
     backdrop-filter: blur(10px);
     border-radius: 15px;
@@ -31,14 +32,13 @@ body{
   .tabla-admin th {
     background: linear-gradient(135deg, #66009960, #a40ad86d);
     color: #ffffff;
-    font-weight: bold;
     border-radius: 5%;
     
   }
   
 .contenedorfijado{
     color: white;
-    margin-top: 55%;
+    margin-top: 25%;
     display: flex;
     justify-content: space-between;
 }
