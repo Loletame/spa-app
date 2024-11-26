@@ -59,14 +59,12 @@ export class LoginService {
         map((data)=> data.result)
       );
   }
-
   private readonly cookieService = inject(CookieService);
-  
   saveTokenInCookies(data: ResponseI<string>): void {
     console.log(data)
     this.cookieService.set(TOKEN, data.result, undefined, '/');
+    this.router.navigate(['/tables']);
   }
-  
   removeTokenInCookies(){
     this.cookieService.set(TOKEN, '', undefined, '/')
   }

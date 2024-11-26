@@ -18,6 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./tables/tabla.module').then((m) => m.TablaModule),
     //canActivate: [loginGuard],
   },
+
 ];
 
 @NgModule({
