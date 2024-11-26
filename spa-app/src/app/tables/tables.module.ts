@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TablaRoutingModule } from './tables.routing.module';
+import { TablesRoutingModule } from './tables.routing.module';
 
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, TablaRoutingModule
+    CommonModule, TablesRoutingModule
   ]
 })
 export class TablaModule { }

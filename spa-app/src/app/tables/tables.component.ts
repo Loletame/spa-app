@@ -1,14 +1,14 @@
-import { HomeService } from './api.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, ViewChild, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { HomeService } from './api.service';
+import { ReservasI } from '../interfaces/reservas.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReservasI } from '../interfaces/reservas.interface';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tabla',
@@ -28,7 +28,6 @@ import { ReservasI } from '../interfaces/reservas.interface';
 })
 export class TablesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
 
   reserva: ReservasI[] = [];
   dataSource = new MatTableDataSource<ReservasI>([]);
@@ -47,7 +46,7 @@ export class TablesComponent implements AfterViewInit {
   private _liveAnnouncer = inject(LiveAnnouncer);
 
   constructor(private homeService: HomeService) {
-    //
+    
     this.dataSource.sort = this.sort;
 
     this.dataSource.filterPredicate = (
@@ -57,9 +56,9 @@ export class TablesComponent implements AfterViewInit {
       const lowerCaseFilter = filter.trim().toLowerCase();
 
       // Convertir las fechas a cadena para filtrar
-      const desdeString =
+      const entradaString =
         data.entrada instanceof Date ? data.entrada.toISOString() : data.entrada;
-      const hastaString =
+      const salidaString =
         data.salida instanceof Date ? data.salida.toISOString() : data.salida;
 
       // Combinar todas las propiedades en una sola cadena para buscar
@@ -67,8 +66,8 @@ export class TablesComponent implements AfterViewInit {
         data.id.toString().toLowerCase().includes(lowerCaseFilter) ||
         data.usuario.nombre.toLowerCase().includes(lowerCaseFilter) ||
         data.departamento.nombre.toLowerCase().includes(lowerCaseFilter) ||
-        desdeString.toLowerCase().includes(lowerCaseFilter) ||
-        hastaString.toLowerCase().includes(lowerCaseFilter) ||
+        entradaString.toLowerCase().includes(lowerCaseFilter) ||
+        salidaString.toLowerCase().includes(lowerCaseFilter) ||
         data.estado.toLowerCase().includes(lowerCaseFilter)
       );
     };
