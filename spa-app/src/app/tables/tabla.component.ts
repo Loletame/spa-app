@@ -28,7 +28,6 @@ import { CommonModule } from '@angular/common';
 })
 export class TablaComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
 
   reserva: ReservasI[] = [];
   dataSource = new MatTableDataSource<ReservasI>([]);
@@ -47,7 +46,7 @@ export class TablaComponent implements AfterViewInit {
   private _liveAnnouncer = inject(LiveAnnouncer);
 
   constructor(private homeService: HomeService) {
-    //
+    
     this.dataSource.sort = this.sort;
 
     this.dataSource.filterPredicate = (
@@ -57,18 +56,18 @@ export class TablaComponent implements AfterViewInit {
       const lowerCaseFilter = filter.trim().toLowerCase();
 
       // Convertir las fechas a cadena para filtrar
-      const desdeString =
-        data.desde instanceof Date ? data.desde.toISOString() : data.desde;
-      const hastaString =
-        data.hasta instanceof Date ? data.hasta.toISOString() : data.hasta;
+      const entradaString =
+        data.entrada instanceof Date ? data.entrada.toISOString() : data.entrada;
+      const salidaString =
+        data.salida instanceof Date ? data.salida.toISOString() : data.salida;
 
       // Combinar todas las propiedades en una sola cadena para buscar
       return (
         data.id.toString().toLowerCase().includes(lowerCaseFilter) ||
         data.usuario.nombre.toLowerCase().includes(lowerCaseFilter) ||
         data.departamento.nombre.toLowerCase().includes(lowerCaseFilter) ||
-        desdeString.toLowerCase().includes(lowerCaseFilter) ||
-        hastaString.toLowerCase().includes(lowerCaseFilter) ||
+        entradaString.toLowerCase().includes(lowerCaseFilter) ||
+        salidaString.toLowerCase().includes(lowerCaseFilter) ||
         data.estado.toLowerCase().includes(lowerCaseFilter)
       );
     };
@@ -101,9 +100,9 @@ export class TablaComponent implements AfterViewInit {
               case 'depto':
                 return data.departamento.nombre.toLowerCase();
               case 'entrada':
-                return new Date(data.desde).getTime();
+                return new Date(data.entrada).getTime();
               case 'salida':
-                return new Date(data.hasta).getTime();
+                return new Date(data.salida).getTime();
               case 'estado':
                 return data.estado.toLowerCase();
               default:

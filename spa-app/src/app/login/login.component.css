@@ -1,5 +1,20 @@
+
+
+.main-container {
+  background-image: url(../assets/img/backgroundlogin.jpg);
+  background-size: 140%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  background-position: 100% 50%;
+  font-family: 'Roboto', sans-serif;
+}
+
 .form {
-  background-color: #fff;
+  background-color: #ffffff36;
   display: block;
   padding: 1rem;
   max-width: 350px;
@@ -13,12 +28,20 @@
   line-height: 1.75rem;
   font-weight: 600;
   text-align: center;
-  color: #000;
+  color: #ffffff;
 }
 
-.input-container {
-  position: relative;
+::ng-deep its-input input {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: #ffffff; /* Color del texto */
+  border: 1px solid rgb(255, 255, 255) !important;
 }
+
+::ng-deep its-input input::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
 
 .button-container {
   text-align: center;
@@ -29,7 +52,7 @@
   outline: none;
   margin: 8px 0;
   border: none;
-  background: rgb(135, 135, 253);
+  background: rgb(96, 24, 102);
   color: white;
   padding: 12px;
   border-radius: 1rem;
@@ -58,7 +81,7 @@
 }
 
 .signup-link {
-  color: #6b7280;
+  color: #ffffff;
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;
@@ -66,4 +89,5 @@
 
 .signup-link a {
   text-decoration: underline;
+  color: #b65f37;
 }

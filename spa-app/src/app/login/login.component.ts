@@ -15,14 +15,10 @@ export class LoginComponent {
   email!: "string";
   password!: string;
 
-  // ngOnInit() {
-  //   localStorage.clear();
-  // }
-
   login() {
     this.loginService.login(this.email, this.password).subscribe({
       next: (data) => {
-        this.router.navigate(['../tables'])
+        this.router.navigate(['/tables'])
       },
           error: (e) => {
             console.error(e);

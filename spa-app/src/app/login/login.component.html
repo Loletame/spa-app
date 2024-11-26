@@ -1,22 +1,22 @@
-<div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+<div class="main-container" style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
     <form class="form">
-        <p class="form-title">Ingresa con tu cuenta</p>
+        <p class="form-title">Ingrese su Usuario</p>
         
         <div class="input-container">
 
             <!-- <app-input [(value)]="usuario" [type]="'text'" [placeholder]="'Ingrese usuario...'" /> -->
-             <its-input class="input-inside" [(value)]="email" [type]="'text'" [placeholder]="'Ingrese email'" [name]="'usuario'" [id]="'usuario'"/>
+         <its-input class="input-inside" [(value)]="email" [type]="'text'" [placeholder]="'Ingrese email'" [name]="'usuario'" [id]="'usuario'"/>
 
         </div>
         <div class="input-container">
-            <its-input style="background-color: antiquewhite !important;" [(value)]="password" [type]="'password'" [placeholder]="'Ingrese contraseña'" [name]="'password'" [id]="password" [showIcon]="true"
+            <its-input [(value)]="password" [type]="'password'" [placeholder]="'Ingrese contraseña'" [name]="'password'" [id]="password" [showIcon]="true"
              />
 
         </div>
 
         <div class="button-container">
             <button (click)="login()">
-                Ingresar! 
+                Ingresar 
             </button>
         </div>
 

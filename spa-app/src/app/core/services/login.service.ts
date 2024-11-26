@@ -10,6 +10,11 @@ export interface LoginResponse {
   token: string;
   usuario: UsuarioD;
 }
+export interface UserI{
+  email: string;
+  password: string;
+  token: string;
+}
 
 export interface UsuarioD {
   id: number;
@@ -41,7 +46,7 @@ export class LoginService {
   login(email: string, password: string) {
     const direction = this.url + 'usuarios/auth/login';
     return this.http
-      .post<{ ok: boolean; token: string; msg: string }>(direction, {
+      .post<ResponseI<string>>(direction, {
         email,
         password,
       })
@@ -50,10 +55,8 @@ export class LoginService {
           console.log(e);
           throw new Error(e);
         }),
-        tap((data) => {
-          console.log(data);
-          localStorage.setItem('x-token', data.token);
-        })
+        tap((data)=> this.saveTokenInCookies(data)),
+        map((data)=> data.result)
       );
   }
 
@@ -62,8 +65,8 @@ export class LoginService {
   saveTokenInCookies(data: ResponseI<string>): void {
     console.log(data)
     this.cookieService.set(TOKEN, data.result, undefined, '/');
-    this.router.navigate(['/tables']);
   }
+  
   removeTokenInCookies(){
     this.cookieService.set(TOKEN, '', undefined, '/')
   }
