@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResponseI } from '../interfaces/response.interface';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,12 +14,13 @@ export class HomeService {
   constructor(private http: HttpClient) { }
 
   getAllReservas(): Observable<ResponseI> {
+    console.log('este deberia andar')
     return this.http.get<ResponseI>(`${this.url}/reservas`);
   }
 
   rechazadoReserva(id:number): Observable<any> {
     console.log('Esto andaaaa')
-    return this.http.patch<ResponseI<any>>(`${this.url}/reservas/${id}/rechazar`, {})
+    return this.http.patch<ResponseI<any>>(`${this.url}/reservas/ ${id}/rechazar`, {})
   }
 
   activarReserva(id:number): Observable<any> {

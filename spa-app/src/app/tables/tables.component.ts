@@ -35,12 +35,12 @@ export class TablesComponent implements AfterViewInit {
   displayedColumns: string[] = [
     'id',
     'cliente',
-    'depto',
+    // 'departamento',
     'entrada',
     'salida',
     'estado',
-    'accionAceptar',
-    'accionRechazar',
+    // 'accionAceptar',
+    // 'accionRechazar',
   ];
 
   private _liveAnnouncer = inject(LiveAnnouncer);
@@ -65,7 +65,7 @@ export class TablesComponent implements AfterViewInit {
       return (
         data.id.toString().toLowerCase().includes(lowerCaseFilter) ||
         data.usuario.nombre.toLowerCase().includes(lowerCaseFilter) ||
-        data.departamento.nombre.toLowerCase().includes(lowerCaseFilter) ||
+        // data.departamento.nombre.toLowerCase().includes(lowerCaseFilter) ||
         entradaString.toLowerCase().includes(lowerCaseFilter) ||
         salidaString.toLowerCase().includes(lowerCaseFilter) ||
         data.estado.toLowerCase().includes(lowerCaseFilter)
@@ -88,7 +88,9 @@ export class TablesComponent implements AfterViewInit {
 
     this.homeService.getAllReservas().subscribe({
       next: (response) => {
+        console.log('Full response object:', response);
         if (response.ok) {
+          console.log('response fue ok')
           this.reserva = response.result.data;
           this.dataSource.data = this.reserva;
           this.paginator.pageIndex = currentPageIndex;
@@ -97,8 +99,8 @@ export class TablesComponent implements AfterViewInit {
             switch (header) {
               case 'cliente':
                 return data.usuario.nombre.toLowerCase();
-              case 'depto':
-                return data.departamento.nombre.toLowerCase();
+              // case 'departamento':
+              //   return data.departamento.nombre.toLowerCase();
               case 'entrada':
                 return new Date(data.entrada).getTime();
               case 'salida':
