@@ -12,24 +12,19 @@ export class LoginComponent {
   // constructor(private readonly loginService: LoginService) {}
   private readonly loginService = inject(LoginService);
   private readonly router = inject(Router);
-
-  ngOnInit() {
-    localStorage.clear();
-  }
+  email!: "string";
+  password!: string;
 
   login() {
-    const a = this.loginService.login(this.usuario, this.clave).subscribe({
-      next: (data) => {},
-      error: (e: any) => {
-        console.log(e);
-        alert('Error de login ' + JSON.stringify(e));
+    this.loginService.login(this.email, this.password).subscribe({
+      next: (data) => {
+        this.router.navigate(['/tables'])
       },
-      complete: () => {
-        this.router.navigate(['/home']);
-      },
+          error: (e) => {
+            console.error(e);
+          }  
+    
     });
   }
 
-  usuario!: string;
-  clave!: string;
 }

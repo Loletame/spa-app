@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "9a961152-c564-4b02-b1ac-000ab00a185e",
+		"name": "ausuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38385741",
+		"_collection_link": "https://apitesting-8215.postman.co/workspace/APITesting~1938edcf-5e48-49c7-803d-e8bb9221874d/collection/38385741-9a961152-c564-4b02-b1ac-000ab00a185e?action=share&source=collection_link&creator=38385741"
+	},
+	"item": [
+		{
+			"name": "se registra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"mica\",\r\n    \"email\": \"mica@mail.com\",\r\n    \"password\": \"123456\",\r\n    \"avatar\": \"holi.jpg\",\r\n    \"role\":\"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "se loguea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"mica@mail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "busca una parcela desocupada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/parcelas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"parcelas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingresa a la parcela",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibWljYUBtYWlsLmNvbSIsIm5vbWJyZSI6Im1pY2EiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczMDg0NTQwMSwiZXhwIjoxNzMwOTMxODAxfQ.HG0l2WMgiWTvaFsxedTgJ0kl_Y5BnW4TaOTg9aa08z4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuarioId\": 6,\r\n    \"parcelaId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ingresos/entrada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ingresos",
+						"entrada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sale de la parcela",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibWljYUBtYWlsLmNvbSIsIm5vbWJyZSI6Im1pY2EiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczMDg0NTQwMSwiZXhwIjoxNzMwOTMxODAxfQ.HG0l2WMgiWTvaFsxedTgJ0kl_Y5BnW4TaOTg9aa08z4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuarioId\": 6,\r\n    \"parcelaId\": 1,\r\n    \"ingresoId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ingresos/salida",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ingresos",
+						"salida"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar deptos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/departamentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"departamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservar depto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibWljYUBtYWlsLmNvbSIsIm5vbWJyZSI6Im1pY2EiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczMDg0NTQwMSwiZXhwIjoxNzMwOTMxODAxfQ.HG0l2WMgiWTvaFsxedTgJ0kl_Y5BnW4TaOTg9aa08z4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"desde\":\"2030-10-25\",\r\n    \"hasta\":\"2030-10-29\",\r\n    \"usuario\": 6,\r\n    \"departamento\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reservas/reservar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservas",
+						"reservar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta el estado de reserva",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibWljYUBtYWlsLmNvbSIsIm5vbWJyZSI6Im1pY2EiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczMDg0NTQwMSwiZXhwIjoxNzMwOTMxODAxfQ.HG0l2WMgiWTvaFsxedTgJ0kl_Y5BnW4TaOTg9aa08z4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/reservas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

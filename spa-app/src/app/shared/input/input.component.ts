@@ -1,7 +1,7 @@
 import { Component, Input, model } from '@angular/core';
 
 @Component({
-  selector: 'app-input',
+  selector: 'its-input',
   templateUrl: './input.component.html',
   styleUrl: './input.component.css',
 })
@@ -14,6 +14,10 @@ export class InputComponent {
   @Input() placeholder: string = 'Add a placeholder here...';
   /** Determina si mostrar o no el icono de la contraseña */
   @Input() showIcon = false;
+  
+  @Input() name : string = '';
+ 
+  @Input() password: string = 'ingresa contraseña';
 
   /** El nombre del icono */
   icon = 'eye.svg';

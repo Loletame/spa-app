@@ -1,0 +1,59 @@
+body{
+    background-image: url(../assets/img/backgroundlogin.jpg);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+}
+
+  .tablacontenedor {
+    background-color: #ffffff16;
+    width: 90%;
+    height: 70%;
+    margin: 2%;
+    padding: 2%;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+  }
+  
+  .tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla-admin td {
+    height: auto;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .tabla-admin th {
+    background: linear-gradient(135deg, #66009960, #a40ad86d);
+    color: #ffffff;
+    border-radius: 5%;
+    
+  }
+  
+.contenedorfijado{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+  
+.tabla-interna{
+    display: flex;
+    justify-content:flex-end;
+    align-items: flex-end;
+}
+
+.mat-paginator{
+    position: fixed;
+    margin-bottom: 0px;
+    
+}
